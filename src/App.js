@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useEffect} from 'react'
+import {
+  BrowserRouter,
+Route,
+HashRouter,
+  Routes,
+  useLocation
+} from "react-router-dom";
+
+import About from './Pages/About';
+import Form from './Pages/Form';
+import Home from './Pages/Home';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
+import Properties from './Pages/Properties';
+import Property from './Pages/Property';
+import TermsandCondition from './Pages/TermsandCondition';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route exact path="/" element={<Home/>}   />
+        <Route exact path="/ourstory" element={<About/>}   />
+          <Route exact path="/property/:id" element={<Property/>}   />
+          <Route exact path="/form" element={<Form/>}   />
+          <Route exact path="/properties" element={<Properties/>}   />
+          <Route exact path="/termsandcondition" element={<TermsandCondition/>}   />
+          <Route exact path="/onboardingpolicy" element={<PrivacyPolicy/>}   />
+      </Routes>
     </div>
   );
 }
